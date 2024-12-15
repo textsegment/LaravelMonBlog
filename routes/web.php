@@ -23,23 +23,25 @@ require __DIR__.'/auth.php';
 
 // Les routes principales
 
+Route::redirect('/', 'afficherLesArticles');
+
 // Afficher les articles
-Route::get('/', [ArticleController::class, 'afficherLesArticles'])->name('afficherLesArticles');
+Route::get('/afficherLesArticles', [ArticleController::class, 'afficherLesArticles'])->name('afficherLesArticles');
 
 // Afficher un article
-Route::get('/afficher/{id}/', [ArticleController::class, 'afficherUnArticle'])->name('afficherUnArticle');
+Route::get('/afficherUnArticle/{id}/', [ArticleController::class, 'afficherUnArticle'])->name('afficherUnArticle');
 
 
 Route::middleware(['auth'])->group(function() {
     // Ajouter un article
-    Route::get('/ajouter/', [ArticleController::class, 'ajouterUnArticle'])->name('ajouterUnArticle');
-    Route::post('/ajouter/', [ArticleController::class, 'ajouterUnArticleAction']);
+    Route::get('/ajouterUnArticle/', [ArticleController::class, 'ajouterUnArticle'])->name('ajouterUnArticle');
+    Route::post('/ajouterUnArticle/', [ArticleController::class, 'ajouterUnArticleAction']);
     
     // Supprimer un article
-    Route::get('/supprimer/{id}/', [ArticleController::class, 'supprimerUnArticle'])->name('supprimerUnArticle');
-    Route::post('/supprimer/{id}/', [ArticleController::class, 'supprimerUnArticleAction']);
+    Route::get('/supprimerUnArticle/{id}/', [ArticleController::class, 'supprimerUnArticle'])->name('supprimerUnArticle');
+    Route::post('/supprimerUnArticle/{id}/', [ArticleController::class, 'supprimerUnArticleAction']);
     
     // Mettre à jour un article
-    Route::get('/mettreajour/{id}/', [ArticleController::class, 'mettreajourUnArticle'])->name('mettreajourUnArticle');
-    Route::post('/mettreajour/{id}/', [ArticleController::class, 'mettreajourUnArticleAction']); 
+    Route::get('/mettreajourUnArticle/{id}/', [ArticleController::class, 'mettreajourUnArticle'])->name('mettreajourUnArticle');
+    Route::post('/mettreajourUnArticle/{id}/', [ArticleController::class, 'mettreajourUnArticleAction']); 
 });

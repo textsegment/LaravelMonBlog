@@ -8,26 +8,26 @@ class ArticleController extends Controller
 {
     // Afficher les articles
     public function afficherLesArticles() {
-        return __FUNCTION__;
+        return view('afficherLesArticles');
     }
 
     // Afficher un article
     public function afficherUnArticle(int $id) {
-        return __FUNCTION__;
+        return view('afficherUnArticle');
     }
 
     // Ajouter un article
     public function ajouterUnArticle() {
-        return __FUNCTION__;
+        return view('ajouterUnArticle');
     }
 
     public function ajouterUnArticleAction() {
-        return __FUNCTION__;
+        return view('ajouterUnArticleAction');
     }
 
     // Supprimer un article
     public function supprimerUnArticle(int $id) {
-        return __FUNCTION__;
+        return view('supprimerUnArticle');
     }
 
     public function supprimerUnArticleAction(int $id) {
@@ -36,7 +36,7 @@ class ArticleController extends Controller
 
     // Mettre à jour un article
     public function mettreajourUnArticle(int $id) {
-        return __FUNCTION__;
+        return view('mettreajourUnArticle');
     }
 
     public function mettreajourUnArticleAction(int $id) {
