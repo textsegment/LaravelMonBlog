@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ArticleController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -19,25 +20,26 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__.'/auth.php';
 
-Route::redirect('/', '/all/');
 
-// Show all posts
-Route::get('/all/', function() { return 'show posts'; })->name('show_posts');
+// Les routes principales
 
-// Show single post
-Route::get('/get/{post_id}/', function(int $post_id) { return 'show post'; })->name('show_post');
+// Afficher les articles
+Route::get('/', [ArticleController::class, 'afficherLesArticles'])->name('afficherLesArticles');
+
+// Afficher un article
+Route::get('/afficher/{id}/', [ArticleController::class, 'afficherUnArticle'])->name('afficherUnArticle');
 
 
 Route::middleware(['auth'])->group(function() {
-    // Add blog post
-    Route::get('/add/', function() { return 'add post'; })->name('add_post');
-    Route::post('/add/', function() { return 'add post handler'; });
+    // Ajouter un article
+    Route::get('/ajouter/', [ArticleController::class, 'ajouterUnArticle'])->name('ajouterUnArticle');
+    Route::post('/ajouter/', [ArticleController::class, 'ajouterUnArticleAction']);
     
-    // Delete blog post
-    Route::get('/delete/{post_id}/', function(int $post_id) { return 'delete post'; })->name('delete_post');
-    Route::post('/delete/{post_id}/', function(int $post_id) { return 'delete post handler'; });
+    // Supprimer un article
+    Route::get('/supprimer/{id}/', [ArticleController::class, 'supprimerUnArticle'])->name('supprimerUnArticle');
+    Route::post('/supprimer/{id}/', [ArticleController::class, 'supprimerUnArticleAction']);
     
-    // Update blog post
-    Route::get('/update/{post_id}/', function(int $post_id) { return 'update post'; })->name('update_post');
-    Route::post('/update/{post_id}/', function(int $post_id) { return 'update post handler'; }); 
+    // Mettre à jour un article
+    Route::get('/mettreajour/{id}/', [ArticleController::class, 'mettreajourUnArticle'])->name('mettreajourUnArticle');
+    Route::post('/mettreajour/{id}/', [ArticleController::class, 'mettreajourUnArticleAction']); 
 });
