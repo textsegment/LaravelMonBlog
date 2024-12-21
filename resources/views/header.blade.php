@@ -14,3 +14,5 @@
     <header>
         <span>MonBlog</span>
     </header>
+
+@include('aside')
