@@ -9,7 +9,7 @@
 
 <body>
     <header>
-        <span>MonBlog</span>
+        <a href="/"><img src="/monblog-logo.png" /></a>
     </header>
 
 @include('aside')
