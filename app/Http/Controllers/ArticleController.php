@@ -34,7 +34,9 @@ class ArticleController extends Controller
 
     // Supprimer un article
     public function supprimerUnArticle(int $id) {
-        return view('supprimerUnArticle');
+        $article = Article::find($id);
+        $article->delete();
+        return redirect('/');
     }
 
     public function supprimerUnArticleAction(int $id) {
