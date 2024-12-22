@@ -1,8 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-use Illuminate\View\View;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\Models\Article;
 
 class ArticleController extends Controller
 {
@@ -21,8 +22,14 @@ class ArticleController extends Controller
         return view('ajouterUnArticle');
     }
 
-    public function ajouterUnArticleAction() {
-        return view('ajouterUnArticleAction');
+    public function ajouterUnArticleAction(Request $req) {
+        $user_id = Auth::id();
+        $article = new Article();
+        $article->titre = $req->titre;
+        $article->contenu = $req->contenu;
+        $article->user_id = $user_id;
+        $article->save();
+        return redirect('/');
     }
 
     // Supprimer un article
