@@ -1,7 +1,7 @@
 @include('header')
 
 <div>
-    Supprimer un article
+    {{ $article }}
 </div>
 
 @include('footer')

@@ -35,12 +35,13 @@ class ArticleController extends Controller
     // Supprimer un article
     public function supprimerUnArticle(int $id) {
         $article = Article::find($id);
-        $article->delete();
-        return redirect('/');
+        return view('supprimerUnArticle', ['article' => $article]);
     }
 
     public function supprimerUnArticleAction(int $id) {
-        return __FUNCTION__;
+        $article = Article::find($id);
+        $article->delete();
+        return redirect('/');
     }
 
     // Mettre à jour un article
