@@ -9,12 +9,14 @@ class ArticleController extends Controller
 {
     // Afficher les articles
     public function afficherLesArticles() {
-        return view('afficherLesArticles');
+        $articles = Article::select(['*'])->orderBy('updated_at')->limit(100)->get();
+        return view('afficherLesArticles', ['articles' => $articles]);
     }
 
     // Afficher un article
     public function afficherUnArticle(int $id) {
-        return view('afficherUnArticle');
+        $article = Article::find($id);
+        return view('afficherUnArticle', ['article' => $article]);
     }
 
     // Ajouter un article
