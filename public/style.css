@@ -69,3 +69,8 @@ h5 {
 h6 {
     font-size: 9px;
 }
+
+article > header > div {
+    color: gray;
+    font-size: 10px;
+}

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Article;
+use App\Models\User;
 
 class ArticleController extends Controller
 {
@@ -16,7 +17,8 @@ class ArticleController extends Controller
     // Afficher un article
     public function afficherUnArticle(int $id) {
         $article = Article::find($id);
-        return view('afficherUnArticle', ['article' => $article]);
+        $user = User::find($article->user_id);
+        return view('afficherUnArticle', ['article' => $article, 'user' => $user]);
     }
 
     // Ajouter un article

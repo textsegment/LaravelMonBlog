@@ -4,7 +4,8 @@
     <article>
         <header>
             <h1>{{ $article->titre }}</h1>
-            <time>{{ $article->created_at }}</time>
+            <div>Publié le {{ $article->created_at }}</div>
+            <div>Autheur: {{ $user->name }}</div>
         </header>
         <main>
             {{ $article->contenu }}

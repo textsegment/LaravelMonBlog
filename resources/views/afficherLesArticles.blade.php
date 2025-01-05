@@ -6,7 +6,7 @@
         <article>
             <header>
                 <h1>{{ $article->titre }}</h1>
-                <time>{{ $article->created_at }}</time>
+                <div>{{ $article->created_at }}</div>
             </header>
         </article>
     </a>
