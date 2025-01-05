@@ -48,13 +48,4 @@ class ArticleController extends Controller
         $article->delete();
         return redirect('/');
     }
-
-    // Mettre à jour un article
-    public function mettreajourUnArticle(int $id) {
-        return view('mettreajourUnArticle');
-    }
-
-    public function mettreajourUnArticleAction(int $id) {
-        return __FUNCTION__;
-    }
 }
