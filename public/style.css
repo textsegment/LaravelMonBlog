@@ -74,3 +74,11 @@ article > header > div {
     color: gray;
     font-size: 10px;
 }
+
+#ajouterunarticle, input#titre, textarea#contenu {
+    width: 100%;
+}
+
+textarea#contenu {
+    min-height: 20em;
+}
