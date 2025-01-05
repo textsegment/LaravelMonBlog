@@ -18,7 +18,8 @@ class ArticleController extends Controller
     public function afficherUnArticle(int $id) {
         $article = Article::find($id);
         $user = User::find($article->user_id);
-        return view('afficherUnArticle', ['article' => $article, 'user' => $user]);
+        $is_owner = $article->user_id == Auth::id();
+        return view('afficherUnArticle', ['article' => $article, 'user' => $user, 'is_owner' => $is_owner]);
     }
 
     // Ajouter un article
